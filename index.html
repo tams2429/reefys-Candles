@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat&family=Lateef&family=Montserrat&family=Open+Sans&family=Playfair+Display&family=Poppins:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  
+  :root{
+    --amatic-title: 'Amatic SC', cursive;
+    --caveat-title: 'Caveat', cursive;
+    --lateef-title: 'Lateef', cursive;
+    --openSans-main: 'Open Sans', sans-serif;
+    --playfair-main: 'Playfair Display', serif;
+    --poppins-main: 'Poppins', sans-serif;
+    --montserrat-main: 'Montserrat', sans-serif;
+  }
+  body {
+    margin: 0;
+  }
+  .background{
+    background: url("https://i.imgur.com/NPyThX5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  h1 {
+    font-family: var(--amatic-title);
+    color: white;
+    text-align: center;
+    font-size: 5rem;
+    margin: 0;
+  }
+  h2 {
+    font-family: var(--caveat-title);
+    text-align: center;
+    color: white;
+    margin: 0;
+  }
+  .titleDescription{
+    width: 20rem;
+    height: 40%;
+    background: rgba(255,255,255,0.3);
+    position: absolute;
+    right: 40px;
+    top: 200px;
+    animation: appear 5s ease;
+  }
+  .titleDescription p{
+    font-size: 2.5rem;
+    font-family: var(--poppins-main);
+    font-style: italic;
+    text-align: center;
+  }
+  #scent{
+    color: green;  
+  }
+  #nature{
+    color: green;  
+  }
+  .bestSellers{
+    margin-bottom: 2rem;
+  }
+  .bestSellers h2{
+    color: black;
+    font-size: 3rem;
+    font-family: var(--poppins-main);
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+  .products{
+    display: table; 
+    margin: 0 1rem;
+  }
+  .products div{
+    display: table-cell;
+    text-align: center;
+    width: 33%; 
+  }
+  .products img{
+    width: 90%;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+  }
+  .products img:hover{
+    transform: scale(1.1);  
+  }
+  .products p{
+    font-family: var(--poppins-main);  
+    font-size: 0.9rem;
+  }
+  .modal-bg1, .modal-bg2, .modal-bg3{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+  }
+  .bg-active{
+    visibility: visible;
+    opacity: 1;  
+  }
+  .modal1, .modal2, .modal3{
+    background: white;
+    width: 85%;
+    height: 90%;
+    border-radius: 0.3rem;
+    position: relative;
+  }
+  .modal1 h2{
+    font-size: 2.4rem;
+    font-family: var(--poppins-main);    
+  }
+  .modal2 h2{
+    font-size: 2.4rem;
+    font-family: var(--poppins-main);    
+  }  
+  .modal3 h2{
+    font-size: 2.4rem;
+    font-family: var(--poppins-main);    
+  }
+  .bestSellers span{
+    cursor: pointer;
+    font-family: var(--poppins-main);
+    font-size: 1.3rem;
+    position: absolute;
+    top: 0.6rem;
+    right: 1rem;
+  }
+  .content1, .content2, .content3 {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .modalCandle1, .modalCandle2, .modalCandle3{
+    width: 40%;
+    margin-top: 4rem;
+  }
+  .modalText1, .modalText2, .modalText3{
+    font-family: var(--poppins-main);
+    font-size: 1rem;
+    width: 40%;
+    text-align: center;
+    margin-top: 6rem;
+  }
+  .aboutUs{
+    max-height: 120vh;
+  }
+  .aboutUs .container{
+    margin: 7rem 3rem 5rem 3rem;
+    height: 24rem;
+    background: #b2967d;
+    display: flex;
+  }
+  .aboutUs div{
+    flex: 50%  
+  }
+  .aboutUs img{
+    width: 80%;
+    padding: 5rem 2rem 3rem 2rem;
+  }
+  .aboutUs .textIntro{
+    background: #eee4e1;
+  }
+  .textIntro h2{
+    font-family: var(--caveat-title);
+    color: black;
+    font-size: 3rem;
+    margin-top: 1rem;
+  }
+  .textIntro p{
+    font-family: var(--poppins-main);
+    font-size: 1rem;
+    text-align: center;
+    margin: 1rem 2rem 0 2rem;
+  }
+  .contactUs{
+    height: 80vh;  
+  }
+  .contactUs h2{
+    color: black;
+    font-size: 3rem;
+  }
+  form { 
+    max-width:26rem; 
+    margin:3.1rem auto; 
+  }
+  .feedback-input {
+    color: black;
+    font-family: var(--poppins-main);
+    font-size: 1rem;
+    line-height: 1.4rem;
+    border:0.1rem solid #CC6666;
+    padding: 0.8rem;
+    margin-bottom: 1.3rem;
+    width:100%;
+    box-sizing: border-box;
+    outline:0;
+  }
+  textarea {
+    height: 9.4rem;
+    line-height: 150%;
+  }
+  [type="submit"] {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 100%;
+    background:#CC6666;
+    border-radius:0.3rem;
+    border:0;
+    cursor:pointer;
+    color:white;
+    font-size: 1.5rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    transition: all 0.3s;
+  }
+  [type="submit"]:hover {
+    background:#CC4949;
+  }
+  
+  @keyframes appear {
+    from{
+      opacity: 0;
+    }
+    50%{
+      opacity: 0;  
+    }
+    to{
+      opacity: 1;  
+    }
+  }
+
+  @media (max-width: 500px) {
+  h1{
+    font-size: 3rem;  
+  }
+  .titleDescription{
+      width: 10rem;
+      height: 40%;
+      right:10px;
+      top: 130px;
+  }
+  .titleDescription p{
+    font-size: 1rem;
+    font-family: var(--poppins-main);
+    font-style: italic;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .bestSellers h2{
+    font-size: 2.2rem;
+    font-family: var(--poppins-main);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .products{
+    display: flex; 
+    flex-direction: column;
+    margin: 0 1rem;
+  }
+  .products div{
+    text-align: center;
+    width: 100%; 
+  }
+  .modal1, .modal2, .modal3{
+    width: 85%;
+    height: 90%;  
+  }
+  .content1, .content2, .content3{
+    display: flex;
+    flex-direction: column;
+  }
+  .modal1 h2{
+    font-size: 1.2rem;
+    margin: 0 1rem 0 1rem;
+  }
+  .modal2 h2{
+    font-size: 1.2rem;    
+    margin: 0 1rem 0 1rem;
+  }  
+  .modal3 h2{
+    font-size: 1.2rem;   
+    margin: 0 2rem 0 2rem;
+  }  
+  .modalCandle1, .modalCandle2, .modalCandle3{
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+  .modalText1, .modalText2, .modalText3{
+    font-size: 0.8rem;
+    width: 80%;
+    margin: 0 auto;
+  }  
+  .aboutUs{
+    margin-bottom: 8rem;  
+  }
+  .aboutUs .container{
+    margin: 3rem 2.2rem 5rem 2.2rem;
+    flex-direction: column;
+    height: 36rem;
+  }
+  .aboutUs img{
+    width: 90%;
+    padding: 4rem 1rem 3rem 1rem;
+  }
+  .textIntro h2{
+    font-size: 2.7rem;
+    margin-top: 1rem;
+  }
+  .textIntro p{
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 1rem 1rem 0 1rem;
+  }
+  .contactUs h2{
+    font-size: 2.4rem;
+  }
+  form { 
+    margin:3rem auto; 
+    text-align: center;
+  }
+  .feedback-input {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    padding: 0.8rem;
+    margin-bottom: 2rem;
+    width:80%;
+  }
+  textarea {
+    height: 9rem;
+    line-height: 150%;
+  }
+  [type="submit"] {
+    width: 80%;
+    font-size: 1.5rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;    
+  }
+}
+</style>
+</head>
+
+<body>
+  <section class="titlePage">
+    <div class="background">
+        <h1>Reefy's Candles</h1>
+        <h2>Have a sniff around...</h2>
+        <div class="titleDescription">
+          <p>"A true <span id="scent"><strong>scent</strong></span> and product of <span id="nature"><strong>nature</strong></span>"</p>
+        </div>
+    </div>
+  </section>
+  <section class="bestSellers">
+    <h2>Best Sellers</h2>
+    <div class="products">
+      <div class="product1">
+        <img class="candle1"src="https://i.imgur.com/CkMZ238.jpg" alt="Picture of candle 1">
+        <p>Happiness Scented Candle </p>
+        <p>£30.00</p>
+      </div>
+      <div class="product2">
+        <img class="candle2" src="https://i.imgur.com/znbxeZx.jpg" alt="Picture of candle 2">
+        <p>Tranquility Scented Candle</p>
+        <p>£15.00</p>
+      </div>
+      <div class="product3">
+        <img class="candle3" src="https://i.imgur.com/sTAgVkQ.jpg" alt="Picture of candle 3">
+        <p>Energise Scented Candle</p>
+        <p>£35.00</p>
+      </div>
+    </div>
+    <div class="modal-bg1">
+      <div class="modal1">
+        <span class="close1">X</span>
+        <h2>Happiness Scented Candle</h2>
+        <div class="content1">
+          <img class="modalCandle1"src="https://i.imgur.com/CkMZ238.jpg" alt="Picture of candle 1">
+          <p class="modalText1">Our 100% natural Happiness™ fragrance which intricately blends 7 essential oils including white neroli, woody and powdery mimosa and zingy lemon, has been expertly blended to help you feel more positive<br><br><em>£30.00</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-bg2">
+      <div class="modal2">
+        <span class="close2">X</span>
+        <h2>Tranquility Scented Candle</h2>
+        <div class="content2">
+          <img class="modalCandle2"src="https://i.imgur.com/znbxeZx.jpg" alt="Picture of candle 2">
+          <p class="modalText2">We believe that if you have a perfect night’s sleep, you will always look and feel like the best version of you. A really special complex blend using only 100% natural fragrances with 19 of the purest possible dreamy essential oils. Hello Tranquillity.<br><br><em>£15.00</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-bg3">
+      <div class="modal3">
+        <span class="close3">X</span>
+        <h2>Energise Scented Candle</h2>
+        <div class="content3">
+          <img class="modalCandle3"src="https://i.imgur.com/sTAgVkQ.jpg" alt="Picture of candle 3">
+          <p class="modalText3">The NEOM Scent To Boost Your Energy™ Range has been created with 100% natural fragrances which not only smell wonderful, but the ingredients have been chosen to help you feel refreshed and energised.<br><br><em>£35.00</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="aboutUs">
+    <div class="container">
+      <div class="picIntro">
+        <img src="https://i.imgur.com/yxd8ZTU.jpgg" alt="Picture of candles">
+      </div>
+      <div class="textIntro">
+        <h2>About Us</h2>
+        <p>We take pride in looking after our planet so we are a candle maker with a conscience. <br>We began our business with the goal of creating a sustainable yet pleasing candle. 
+We are proud to sell the vegan candle!
+We are sure you'll be proud to own one!</p>
+      </div>
+    </div>
+  </section>
+  <section class="contactUs">
+    <h2>Get in touch with us</h2>
+    <form>
+      <input name="name" type="text" class="feedback-input" placeholder="Name" />
+      <input name="email" type="text" class="feedback-input" placeholder="Email" />
+      <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+      <input type="submit" value="SUBMIT"/>
+    </form>
+  </section>
+
+
+<script>
+  let imgLink1 = document.querySelector('.candle1');
+  let modalBg1 = document.querySelector('.modal-bg1');
+  let imgLink2 = document.querySelector('.candle2');
+  let modalBg2 = document.querySelector('.modal-bg2');
+  let imgLink3 = document.querySelector('.candle3');
+  let modalBg3 = document.querySelector('.modal-bg3');
+  let close1 = document.querySelector('.close1');
+  let close2 = document.querySelector('.close2');
+  let close3 = document.querySelector('.close3');
+  
+  imgLink1.addEventListener('click', function(){
+    modalBg1.classList.add('bg-active');  
+  });
+  imgLink2.addEventListener('click', function(){
+    modalBg2.classList.add('bg-active');  
+  });
+  imgLink3.addEventListener('click', function(){
+    modalBg3.classList.add('bg-active');  
+  });
+  close1.addEventListener('click', function(){
+    modalBg1.classList.remove('bg-active');    
+  });
+  close2.addEventListener('click', function(){
+    modalBg2.classList.remove('bg-active');    
+  });
+  close3.addEventListener('click', function(){
+    modalBg3.classList.remove('bg-active');    
+  });
+
+</script>
+
+</body>

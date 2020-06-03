@@ -16,7 +16,7 @@
     margin: 0;
   }
   .background{
-    background: url("https://i.imgur.com/NPyThX5.jpg");
+    background: url("/assets/img/title6.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -26,17 +26,19 @@
     font-family: var(--amatic-title);
     color: white;
     text-align: center;
-    font-size: 5rem;
+    font-size: 6rem;
     margin: 0;
   }
   h2 {
     font-family: var(--caveat-title);
     text-align: center;
     color: white;
+    font-size: 2rem;
     margin: 0;
   }
   .titleDescription{
-    width: 20rem;
+    max-width: 40%;
+    min-width: 30%;
     height: 40%;
     background: rgba(255,255,255,0.3);
     position: absolute;
@@ -49,6 +51,10 @@
     font-family: var(--poppins-main);
     font-style: italic;
     text-align: center;
+    position: relative;
+    top: 5%;
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
   #scent{
     color: green;  
@@ -85,7 +91,7 @@
   }
   .products p{
     font-family: var(--poppins-main);  
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
   .modal-bg1, .modal-bg2, .modal-bg3{
     position: fixed;
@@ -108,7 +114,7 @@
   .modal1, .modal2, .modal3{
     background: white;
     width: 85%;
-    height: 90%;
+    max-height: 90%;
     border-radius: 0.3rem;
     position: relative;
   }
@@ -138,17 +144,23 @@
   }
   .modalCandle1, .modalCandle2, .modalCandle3{
     width: 40%;
-    margin-top: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
   }
   .modalText1, .modalText2, .modalText3{
     font-family: var(--poppins-main);
-    font-size: 1rem;
+    font-size: 1.2rem;
     width: 40%;
     text-align: center;
-    margin-top: 6rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
   .aboutUs{
     max-height: 120vh;
+    max-width: 63rem;
+    margin: 0 auto;
   }
   .aboutUs .container{
     margin: 7rem 3rem 5rem 3rem;
@@ -157,11 +169,15 @@
     display: flex;
   }
   .aboutUs div{
-    flex: 50%  
+    flex: 50%;  
+    display: block;
+    text-align: center;
   }
   .aboutUs img{
     width: 80%;
     padding: 5rem 2rem 3rem 2rem;
+    max-height: 70%;
+    object-fit: contain;
   }
   .aboutUs .textIntro{
     background: #eee4e1;
@@ -177,9 +193,12 @@
     font-size: 1rem;
     text-align: center;
     margin: 1rem 2rem 0 2rem;
+    position: relative;
+    top: 10%;
   }
   .contactUs{
-    height: 80vh;  
+    height: 80vh;
+    padding-top: 3rem;  
   }
   .contactUs h2{
     color: black;
@@ -234,22 +253,90 @@
     }
   }
 
+  @media (max-width: 950px){
+    .titleDescription p{
+      font-size: 2.1rem;
+    }    
+    .modalText1, .modalText2, .modalText3{
+      font-size: 1rem;
+    }
+    .products p{
+      font-size: 0.9rem;
+    }  
+  }
+
+  @media (max-width: 800px) { 
+    .modalText1, .modalText2, .modalText3{
+      font-size: 0.9rem;
+    }  
+  }
+
+  @media (max-width: 700px){
+    .titleDescription p{
+      font-size: 1.7rem;
+    }
+    .modal1, .modal2, .modal3{
+      width: 85%;
+      max-height: 90%;  
+    }
+    .content1, .content2, .content3{
+      display: flex;
+      flex-direction: column;
+    }
+    .modal1 h2{
+      font-size: 1.7rem;
+      margin: 0 1rem 0 1rem;
+    }
+    .modal2 h2{
+      font-size: 1.7rem;    
+      margin: 0 1rem 0 1rem;
+    }  
+    .modal3 h2{
+      font-size: 1.7rem;   
+      margin: 0 2rem 0 2rem;
+    }  
+    .modalCandle1, .modalCandle2, .modalCandle3{
+      width: 60%;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+    }
+    .modalText1, .modalText2, .modalText3{
+      font-size: 0.8rem;
+      width: 80%;
+      margin: 0 auto;
+    }
+    .aboutUs{
+      margin-bottom: 8rem;  
+    }
+    .aboutUs .container{
+      margin: 3rem 5rem 5rem 5rem;
+      flex-direction: column;
+      height: 36rem;
+    }
+    .aboutUs img{
+      width: 70%;
+      padding: 4rem 1rem 3rem 1rem;
+    }
+    .textIntro h2{
+      font-size: 2.7rem;
+      margin-top: 1rem;
+    }
+    .textIntro p{
+      font-size: 1rem;
+      text-align: center;
+      margin: 1rem 1rem 6rem 1rem;
+    }    
+  }
+
+  @media (max-width: 600px){
+    .titleDescription p{
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
   @media (max-width: 500px) {
   h1{
     font-size: 3rem;  
-  }
-  .titleDescription{
-      width: 10rem;
-      height: 40%;
-      right:10px;
-      top: 130px;
-  }
-  .titleDescription p{
-    font-size: 1rem;
-    font-family: var(--poppins-main);
-    font-style: italic;
-    text-align: center;
-    padding: 2rem 0;
   }
   .bestSellers h2{
     font-size: 2.2rem;
@@ -266,14 +353,6 @@
     text-align: center;
     width: 100%; 
   }
-  .modal1, .modal2, .modal3{
-    width: 85%;
-    height: 90%;  
-  }
-  .content1, .content2, .content3{
-    display: flex;
-    flex-direction: column;
-  }
   .modal1 h2{
     font-size: 1.2rem;
     margin: 0 1rem 0 1rem;
@@ -286,37 +365,7 @@
     font-size: 1.2rem;   
     margin: 0 2rem 0 2rem;
   }  
-  .modalCandle1, .modalCandle2, .modalCandle3{
-    width: 60%;
-    margin: 0 auto;
-    margin-bottom: 1rem;
-  }
-  .modalText1, .modalText2, .modalText3{
-    font-size: 0.8rem;
-    width: 80%;
-    margin: 0 auto;
-  }  
-  .aboutUs{
-    margin-bottom: 8rem;  
-  }
-  .aboutUs .container{
-    margin: 3rem 2.2rem 5rem 2.2rem;
-    flex-direction: column;
-    height: 36rem;
-  }
-  .aboutUs img{
-    width: 90%;
-    padding: 4rem 1rem 3rem 1rem;
-  }
-  .textIntro h2{
-    font-size: 2.7rem;
-    margin-top: 1rem;
-  }
-  .textIntro p{
-    font-size: 0.8rem;
-    text-align: center;
-    margin: 1rem 1rem 0 1rem;
-  }
+
   .contactUs h2{
     font-size: 2.4rem;
   }
@@ -359,17 +408,17 @@
     <h2>Best Sellers</h2>
     <div class="products">
       <div class="product1">
-        <img class="candle1"src="https://i.imgur.com/CkMZ238.jpg" alt="Picture of candle 1">
+        <img class="candle1"src="/assets/img/product2.jpg" alt="Picture of candle 1">
         <p>Happiness Scented Candle </p>
         <p>£30.00</p>
       </div>
       <div class="product2">
-        <img class="candle2" src="https://i.imgur.com/znbxeZx.jpg" alt="Picture of candle 2">
+        <img class="candle2" src="/assets/img/product4.jpg" alt="Picture of candle 2">
         <p>Tranquility Scented Candle</p>
         <p>£15.00</p>
       </div>
       <div class="product3">
-        <img class="candle3" src="https://i.imgur.com/sTAgVkQ.jpg" alt="Picture of candle 3">
+        <img class="candle3" src="/assets/img/product1.jpg" alt="Picture of candle 3">
         <p>Energise Scented Candle</p>
         <p>£35.00</p>
       </div>
@@ -379,7 +428,7 @@
         <span class="close1">X</span>
         <h2>Happiness Scented Candle</h2>
         <div class="content1">
-          <img class="modalCandle1"src="https://i.imgur.com/CkMZ238.jpg" alt="Picture of candle 1">
+          <img class="modalCandle1"src="/assets/img/product2.jpg" alt="Picture of candle 1">
           <p class="modalText1">Our 100% natural Happiness™ fragrance which intricately blends 7 essential oils including white neroli, woody and powdery mimosa and zingy lemon, has been expertly blended to help you feel more positive<br><br><em>£30.00</em></p>
         </div>
       </div>
@@ -389,7 +438,7 @@
         <span class="close2">X</span>
         <h2>Tranquility Scented Candle</h2>
         <div class="content2">
-          <img class="modalCandle2"src="https://i.imgur.com/znbxeZx.jpg" alt="Picture of candle 2">
+          <img class="modalCandle2"src="/assets/img/product4.jpg" alt="Picture of candle 2">
           <p class="modalText2">We believe that if you have a perfect night’s sleep, you will always look and feel like the best version of you. A really special complex blend using only 100% natural fragrances with 19 of the purest possible dreamy essential oils. Hello Tranquillity.<br><br><em>£15.00</em></p>
         </div>
       </div>
@@ -399,7 +448,7 @@
         <span class="close3">X</span>
         <h2>Energise Scented Candle</h2>
         <div class="content3">
-          <img class="modalCandle3"src="https://i.imgur.com/sTAgVkQ.jpg" alt="Picture of candle 3">
+          <img class="modalCandle3"src="/assets/img/product1.jpg" alt="Picture of candle 3">
           <p class="modalText3">The NEOM Scent To Boost Your Energy™ Range has been created with 100% natural fragrances which not only smell wonderful, but the ingredients have been chosen to help you feel refreshed and energised.<br><br><em>£35.00</em></p>
         </div>
       </div>
@@ -408,7 +457,7 @@
   <section class="aboutUs">
     <div class="container">
       <div class="picIntro">
-        <img src="https://i.imgur.com/yxd8ZTU.jpgg" alt="Picture of candles">
+        <img src="/assets/img/title3.jpg" alt="Picture of candles">
       </div>
       <div class="textIntro">
         <h2>About Us</h2>
